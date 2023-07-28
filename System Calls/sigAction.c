@@ -3,6 +3,7 @@
 #include <sys/wait.h>
 #include <unistd.h>
 #include <signal.h>
+#include<stdlib.h>
 
 // Signal handler function for the child process
 void child_signal_handler(int sig) {
