@@ -8,3 +8,8 @@ int main() {
 }
 
 /* The total number of child process created is _________*/
+
+/*  A generalization variation
+        for(i=0;i<n;i++) fork()
+    This statement will create 2^n - 1 processes
+*/
