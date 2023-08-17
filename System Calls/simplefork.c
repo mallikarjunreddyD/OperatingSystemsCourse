@@ -4,7 +4,7 @@ int main() {
     int ppid = getpid();
     printf("Parent PID = %d\n",ppid);
     fork();         // A new child process is created
-    printf("I will be executed twice\n");
+    printf("This statment and the following statement is printed twice\n");
     printf("PID=%d\n",getpid());
 }
 

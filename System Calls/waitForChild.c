@@ -38,7 +38,7 @@ int main()
             // extract the exit status of the terminated child
             int exit_status = WEXITSTATUS(status);
             printf("Child process %d exited with status %d", wait_pid, exit_status);
-        }
+        } 
         printf("parent exiting\n");
     }
 }
