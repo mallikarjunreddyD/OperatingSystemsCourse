@@ -34,24 +34,26 @@ int main() {
             perror("sigaction");
             return 1;
         } else {
-            exit(0); // Do some work on receiving signals
+            printf("Saying Hi on request of my parent %d \n",getppid());
         }
         // Child process waits for the signal from the parent
-        sleep(100);
+        while(1) {
+            sleep(5);
+        }
     } else {
         // Parent process
-        printf("Parent process: My PID is %d, Child PID is %d\n", getpid(), child_pid);
+        
 
-        // Wait for a moment before sending the signal
+        
+        while(1) {
         sleep(5);
-
         // Send the signal (SIGUSR1) to the child process
         printf("Parent process: Sending signal (SIGUSR1) to the child (PID: %d)\n", child_pid);
         if (kill(child_pid, SIGUSR1) == -1) {
             perror("kill");
             return 1;
         }
-
+        }
         // Wait for the child process to terminate
         int status;
         if (wait(&status) != -1) {

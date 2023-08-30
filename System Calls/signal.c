@@ -14,8 +14,7 @@ void signal_handler(int sig) {
 }
 
 int main() {
-    // Set up the signal handler for the termination signal (SIGUSR1)
-    signal(SIGUSR1, signal_handler);
+    
 
     // Create a child process using fork
     child_pid = fork();
@@ -25,12 +24,15 @@ int main() {
         return 1;
     } else if (child_pid == 0) {
         // Child process
+        // Set up the signal handler for the termination signal (SIGUSR1)
+        signal(SIGUSR1, signal_handler);
         printf("Child process: My PID is %d\n", getpid());
         // Add child process logic here
 
         // Child process waits for the termination signal from the parent
         while (1) {
             sleep(1); // Simulate some work
+            printf("I am child and I am sleeping\n");
         }
     } else {
         // Parent process
